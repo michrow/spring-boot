@@ -1,0 +1,93 @@
+initializr:
+  env:
+    boms:
+      my-api-bom:
+        groupId: org.acme
+        artifactId: my-api-dependencies
+        version: 1.0.0.RELEASE
+        repositories: my-api-repo-1
+      codecentric-spring-boot-admin:
+        groupId: de.codecentric
+        artifactId: spring-boot-admin-dependencies
+        versionProperty: spring-boot-admin.version
+        mappings:
+         - compatibilityRange: "[1.5.9.RELEASE,2.0.0.M1)"
+           version: 1.5.7
+         - compatibilityRange: "[2.0.0.M1,2.0.x.BUILD-SNAPSHOT)"
+           version: 2.0.1
+         - compatibilityRange: "2.0.x.BUILD-SNAPSHOT"
+           version: 2.0.2-SNAPSHOT
+           repositories: sonatype-snapshots
+
+    repositories:
+      sonatype-snapshots:
+        name: Sonatype Snapshots
+        url: https://oss.sonatype.org/content/repositories/snapshots/
+        snapshotsEnabled: true
+      my-api-repo-1:
+        name: repo1
+        url: https://example.com/repo1
+  dependencies:
+    - name: Ops
+      content:
+        - name: My API
+          id : my-api
+          groupId: org.acme
+          artifactId: my-api
+          bom: my-api-bom
+        - name: Actuator
+          id: actuator
+          description: Production ready features to help you monitor and manage your application
+          links:
+            - rel: guide
+              href: https://spring.io/guides/gs/actuator-service/
+              description: Building a RESTful Web Service with Spring Boot Actuator
+            - rel: reference
+              href: http://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#production-ready
+        - name: Spring Boot Admin (Server)
+          id: codecentric-spring-boot-admin-server
+          groupId: de.codecentric
+          artifactId: spring-boot-admin-starter-server
+          description: An admin interface for Spring Boot applications
+          compatibilityRange: "1.5.9.RELEASE"
+          bom: codecentric-spring-boot-admin
+          links:
+            - rel: reference
+              href: http://codecentric.github.io/spring-boot-admin/current/#getting-started
+        - name: Spring Boot Admin (Client)
+          id: codecentric-spring-boot-admin-client
+          groupId: de.codecentric
+          artifactId: spring-boot-admin-starter-client
+          description: Register your application with a Spring Boot Admin instance
+          compatibilityRange: "1.5.9.RELEASE"
+          bom: codecentric-spring-boot-admin
+          links:
+            - rel: reference
+              href: http://codecentric.github.io/spring-boot-admin/current/#getting-started
+        - name: Actuator Docs
+          id: actuator-docs
+          description: API documentation for the Actuator endpoints
+          compatibilityRange: "[1.3.0.RELEASE,2.0.0.M1)"
+          groupId: org.springframework.boot
+          artifactId: spring-boot-actuator-docs
+    - name: Web
+      content:
+        - name: Web
+          id: web
+          description: Full-stack web development with Tomcat and Spring MVC
+          weight: 100
+          facets:
+            - web
+            - json
+          links:
+            - rel: guide
+              href: https://spring.io/guides/gs/rest-service/
+              description: Building a RESTful Web Service
+            - rel: reference
+              href: http://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#boot-features-developing-web-applications
+            - rel: guide
+              href: https://spring.io/guides/gs/serving-web-content/
+              description: Serving Web Content with Spring MVC
+            - rel: guide
+              href: https://spring.io/guides/tutorials/bookmarks/
+              description: Building REST services with Spring

@@ -1,0 +1,63 @@
+initializr:
+  types:
+    - name: Maven Project
+      id: maven-project
+      description: Generate a Maven based project archive
+      tags:
+        build: maven
+        format: project
+      default: true
+      action: /starter.zip
+    - name: Gradle Project
+      id: gradle-project
+      description: Generate a Gradle based project archive
+      tags:
+        build: gradle
+        format: project
+      default: false
+      action: /starter.zip
+  packagings:
+    - name: Jar
+      id: jar
+      default: true
+    - name: War
+      id: war
+      default: false
+  javaVersions:
+    - id: 11
+      default: false
+    - id: 1.8
+      name: 8
+      default: true
+  languages:
+    - name: Java
+      id: java
+      default: true
+    - name: Kotlin
+      id: kotlin
+      default: false
+    - name: Groovy
+      id: groovy
+      default: false
+  group-id:
+    value: org.acme
+  bootVersions:
+    - name : Latest SNAPSHOT
+      id: 1.2.4.BUILD-SNAPSHOT
+      default: false
+    - name: 1.2.3
+      id: 1.2.3.RELEASE
+      default: true
+    - name: 1.1.12
+      id: 1.1.12.RELEASE
+      default: false
+
+#    - name : 2.2.2.RELEASE
+#      id: 2.2.2.BUILD-SNAPSHOT
+#      default: false
+#    - name: 2.1.12.RELEASE
+#      id: 2.1.12
+#      default: true
+#    - name: 1.5.22.RELEASE
+#      id: 1.5.22
+#      default: false
