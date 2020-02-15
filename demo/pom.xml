@@ -20,62 +20,45 @@
 	</properties>
 
 	<dependencies>
+
+<!--数据库相关依赖开始-->
+		<!--db2驱动-->
+		<dependency>
+			<groupId>com.ibm.db2.jcc</groupId>
+			<artifactId>db2-spring-boot-starter</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<!--mysql驱动-->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<!--mybatis-->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>2.1.1</version>
+		</dependency>
+		<!-- 启用SpringBoot2.x 默认连接池HikariCP -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+
+		<!--通用依赖，不用修改-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>de.codecentric</groupId>
-			<artifactId>spring-boot-admin-starter-client</artifactId>
-			<version>2.1.6</version>
-		</dependency>
-
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.boot</groupId>-->
-			<!--<artifactId>spring-boot-starter-actuator</artifactId>-->
-		<!--</dependency>-->
-
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.boot</groupId>-->
-			<!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
-			<!--<scope>provided</scope>-->
-		<!--</dependency>-->
-
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.boot</groupId>-->
-			<!--<artifactId>spring-boot-starter-security</artifactId>-->
-		<!--</dependency>-->
-
-		<!--&lt;!&ndash;redis 依赖&ndash;&gt;-->
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.boot</groupId>-->
-			<!--<artifactId>spring-boot-starter-data-redis</artifactId>-->
-		<!--</dependency>-->
-
-		<!--&lt;!&ndash;session依赖&ndash;&gt;-->
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.session</groupId>-->
-			<!--<artifactId>spring-session-data-redis</artifactId>-->
-		<!--</dependency>-->
-
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.boot</groupId>-->
-			<!--<artifactId>spring-boot-devtools</artifactId>-->
-			<!--<optional>true</optional>-->
-		<!--</dependency>-->
-
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -85,41 +68,11 @@
 	</dependencies>
 
 	<build>
-			<!--<resources>-->
-			<!--<resource>-->
-				<!--<directory>src/main/resources</directory>-->
-				<!--<excludes>-->
-					<!--<exclude>**/*.properties</exclude>-->
-					<!--<exclude>**/*.yml</exclude>-->
-				<!--</excludes>-->
-			<!--</resource>-->
-		<!--</resources>-->
 		<plugins>
-            <!--spring boot repackage，依赖 maven-jar-plugin 打包的jar包 重新打包成 spring boot 的jar包-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-					<fork>true</fork>
-                    <!--重写包含依赖，包含不存在的依赖，jar里没有pom里的依赖-->
-                    <includes>
-						<include>
-							<groupId>${groupId}</groupId>
-							<artifactId>${artifactId}</artifactId>
-						</include>
-						<!--自身独有依赖-->
-						<include>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</include>
-                    </includes>
-                    <layout>ZIP</layout>
-                    <!--使用外部配置文件，jar包里没有资源文件-->
-                    <addResources>true</addResources>
-                    <outputDirectory>${project.build.directory}/server1</outputDirectory>
-                </configuration>
             </plugin>
-
 		</plugins>
 	</build>
 

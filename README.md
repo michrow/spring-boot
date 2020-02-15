@@ -46,7 +46,14 @@ $ npm install --global standard-readme-spec
 ```
 
 ## 使用
+### case:
+[custom-initializr](case/custom-initializr)
 
+springboot initializr是新建SpringBoot项目的一个工具应用，用户可以根据需要定制此工具，
+custom-initializr就是一个定制之后的一个应用。
+
+使用方式：
+可以直接启动项目，在开发工具中地址选择：<http://localhost:8080>即可。
 
 ## 文档
 
@@ -56,6 +63,39 @@ $ npm install --global standard-readme-spec
 2. [服务端环境搭建](https://github.com/lenve/vhr/wiki/2.%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA)
 
 ### 更新记录
+
+### 2020.2.15
+
+本阶段主要添加了db使用mybatis操作数据的操作。主要功能如下：
+[具体可参看笔记](https://app.yinxiang.com/shard/s43/nl/23892682/f66de40b-3b40-4809-bf99-dc526230ec0e)
+
+- Mapper.xml
+	- CRUD标签
+		- select insert update delete
+	- \#{}和${}
+		- 参数定位 
+		- 模糊查询
+	- ResultMap
+		- POJO属性名与数据库列明不一致
+		- 高级查询
+			- 一对一 一对多 多对多 延迟加载
+	- SQL片段 
+	- 动态SQL
+		if choose、when、otherwise where set foreach
+	- SQL中特殊符号处理
+		- 使用转义符
+- 缓存
+	- 一级缓存 
+	- 二级缓存 
+	- 总结（生产环境不建议使用）
+- 问题及解决方式
+	- 数据库列与POJO不一致 
+	- mybatis 在多数据源情况下配置不生效 
+	- POJO包扫描别称 
+	- 获取自增主键 
+	- MyBatis开启日志 
+	- Mybatis 一对多查询时，数据覆盖
+
 
 ### 2020.2.13 更新
 
