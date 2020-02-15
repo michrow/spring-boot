@@ -36,7 +36,13 @@
             </association>
         </collection>
     </resultMap>
-
+    <!--延时加载-->
+    <resultMap id="OrderUserResultMapLazy" type="Order" autoMapping="true">
+        <id column="id" property="id"/>
+        <association property="user" javaType="User" autoMapping="true" select="queryUserById" column="user_id">
+        </association>
+    </resultMap>
+    
     <!--一对一查询:订单和用户-->
        <select id="queryOrderWithUserByOrderNumber" resultMap="OrderUserResultMap">
         select * from tb_order o left join  user u on o.user_id=u.id where o.order_number=#{number}
@@ -58,6 +64,12 @@
         left join  tb_item it on dd.item_id = it.item_id
         where o.order_number=#{number}
     </select>
-
+    
+    <select id="queryOrderWithUserByOrderNumberLazy" resultMap="OrderUserResultMapLazy">
+        select * from tb_order where order_number=#{number}
+    </select>
+    <select id="queryUserById" resultType="User">
+        select  * from user where id=#{id}
+    </select>
 </mapper>
 

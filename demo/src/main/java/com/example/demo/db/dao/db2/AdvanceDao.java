@@ -27,4 +27,11 @@ public interface AdvanceDao {
      * @return
      */
     public Order  queryOrderWithUserAndDetailItemByOrderNumber(@Param("number") String number);
+
+    /**
+     * 根据订单号查询订单信息及延时查询用户信息
+     * @param number
+     * @return
+     */
+    public Order queryOrderWithUserByOrderNumberLazy(@Param("number") String number);
 }

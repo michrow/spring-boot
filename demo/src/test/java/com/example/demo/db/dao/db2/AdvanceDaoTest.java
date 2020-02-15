@@ -38,4 +38,14 @@ public class AdvanceDaoTest {
         log.info(order.getUser().toString());
         log.info(order.getDetails().toString());
     }
+
+    @Test
+    public void queryOrderWithUserByOrderNumberLazy() {
+        String orderNumber = "201807010001";
+        Order order = advanceDao.queryOrderWithUserByOrderNumberLazy(orderNumber);
+        log.info(order.getOrderNumber());
+        log.info("订单信息加载完毕");
+        log.info(order.getUser().toString());
+        log.info(order.toString());
+    }
 }
