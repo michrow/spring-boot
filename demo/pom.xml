@@ -51,6 +51,17 @@
 		</dependency>
 <!--数据库相关依赖开始-->
 
+		<dependency><!--Jquery组件（前端）-->
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery</artifactId>
+			<version>1.11.1</version>
+		</dependency>
+
+		<dependency><!--Webjars版本定位工具（前端）-->
+			<groupId>org.webjars</groupId>
+			<artifactId>webjars-locator-core</artifactId>
+		</dependency>
+
 		<!--通用依赖，不用修改-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -60,10 +71,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-freemarker</artifactId>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.boot</groupId>-->
+			<!--<artifactId>spring-boot-starter-freemarker</artifactId>-->
+		<!--</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
