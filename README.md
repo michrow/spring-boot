@@ -64,6 +64,19 @@ custom-initializr就是一个定制之后的一个应用。
 
 ### 更新记录
 
+### 2020.2.20
+
+引入thymeleaf,首先取出原来演示mybatis分页插件引入的freemarker
+修改：
+1、pom.xml:
+去处：
+spring-boot-starter-freemarker引入
+
+2、db配置文件，去除freemarker配置
+
+
+
+
 ### 2020.2.17
 
 本阶段完成如下事：
