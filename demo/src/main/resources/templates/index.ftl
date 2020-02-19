@@ -1,8 +1,8 @@
 <html>
 <head>
     <title>Mybatis分页插件 - 测试页面</title>
-    <script src="/static/js/jquery-1.11.1.min.js"></script>
-    <link href="/static/css/style.css" rel="stylesheet" type="text/css"/>
+    <script type="application/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <link href="/css/style.css" rel="stylesheet" type="text/css"/>
     <style type="text/css">
         .pageDetail {
             display: none;
