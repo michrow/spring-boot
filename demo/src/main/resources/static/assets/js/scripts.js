@@ -1,13 +1,16 @@
 
 jQuery(document).ready(function() {
-	
+    var b=document.location.origin;
+    var a=document.location.href;
+    var c=a.replace(b,'');
+    var uri = c.substring(1,c.lastIndexOf("/"));
     /*
         Fullscreen background
     */
     $.backstretch([
-                    "assets/img/backgrounds/2.jpg"
-	              , "assets/img/backgrounds/3.jpg"
-	              , "assets/img/backgrounds/1.jpg"
+                    "/"+uri+"/static/assets/img/backgrounds/2.jpg"
+	              , "/"+uri+"/static/assets/img/backgrounds/3.jpg"
+	              , "/"+uri+"/static/assets/img/backgrounds/1.jpg"
 	             ], {duration: 3000, fade: 750});
     
     /*

@@ -11,9 +11,9 @@
     <!-- CSS -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
-    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css" th:href="@{assets/font-awesome/css/font-awesome.min.css}">
-    <link rel="stylesheet" href="assets/css/form-elements.css" th:href="@{assets/css/form-elements.css}">
-    <link rel="stylesheet" href="assets/css/style.css" th:href="@{assets/css/style.css}">
+    <link rel="stylesheet" href="/static/assets/font-awesome/css/font-awesome.min.css" th:href="@{/static/assets/font-awesome/css/font-awesome.min.css}">
+    <link rel="stylesheet" href="/static/assets/css/form-elements.css" th:href="@{/static/assets/css/form-elements.css}">
+    <link rel="stylesheet" href="/static/assets/css/style.css" th:href="@{/static/assets/css/style.css}">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,11 +23,11 @@
     <![endif]-->
 
     <!-- Favicon and touch icons -->
-    <link rel="shortcut icon" href="assets/ico/favicon.png">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png" th:href="@{assets/ico/apple-touch-icon-144-precomposed.png}">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png" th:href="@{assets/ico/apple-touch-icon-114-precomposed.png}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png" th:href="@{assets/ico/apple-touch-icon-72-precomposed.png}">
-    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png" th:href="@{assets/ico/apple-touch-icon-57-precomposed.png}">
+    <link rel="shortcut icon" href="/static/assets/ico/favicon.png" th:href="@{/static/assets/ico/favicon.png}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/assets/ico/apple-touch-icon-144-precomposed.png" th:href="@{/static/assets/ico/apple-touch-icon-144-precomposed.png}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/assets/ico/apple-touch-icon-114-precomposed.png" th:href="@{/static/assets/ico/apple-touch-icon-114-precomposed.png}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/assets/ico/apple-touch-icon-72-precomposed.png" th:href="@{/static/assets/ico/apple-touch-icon-72-precomposed.png}">
+    <link rel="apple-touch-icon-precomposed" href="/static/assets/ico/apple-touch-icon-57-precomposed.png" th:href="@{/static/assets/ico/apple-touch-icon-57-precomposed.png}">
 
 </head>
 
@@ -45,19 +45,21 @@
                            [[#{description}]]
                         </p>
                     </div>
+
+                    <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-3 form-box">
                     <div class="form-bottom">
-                        <form role="form" action="" method="post" class="login-form">
+                        <form role="form" th:action="@{/user/login}" method="post" class="login-form">
                             <div class="form-group">
                                 <label class="sr-only" for="form-username">Username</label>
-                                <input type="text" name="form-username" placeholder="Username..." th:placeholder="#{username}" class="form-username form-control" id="form-username">
+                                <input type="text" name="username" placeholder="Username..." th:placeholder="#{username}" class="form-username form-control" id="form-username">
                             </div>
                             <div class="form-group">
                                 <label class="sr-only" for="form-password">Password</label>
-                                <input type="password" name="form-password" placeholder="Password..." th:placeholder="#{password}" class="form-password form-control" id="form-password">
+                                <input type="password" name="password" placeholder="Password..." th:placeholder="#{password}" class="form-password form-control" id="form-password">
                             </div>
                             <button type="submit" class="btn" th:text="#{btn}">Sign in!</button>
                             <p class="mt-5 mb-3 text-muted">2020-02-19</p>
@@ -74,13 +76,13 @@
 
 
 <!-- Javascript -->
-<script src="assets/js/jquery-1.11.1.min.js" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script src="/static/assets/js/jquery-1.11.1.min.js" th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script src="/webjars/bootstrap/js/bootstrap.min.js" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-<script src="assets/js/jquery.backstretch.min.js" th:src="@{assets/js/jquery.backstretch.min.js}"></script>
-<script src="assets/js/scripts.js" th:src="@{assets/js/scripts.js}"></script>
+<script src="/static/assets/js/jquery.backstretch.min.js" th:src="@{/static/assets/js/jquery.backstretch.min.js}"></script>
+<script src="/static/assets/js/scripts.js" th:src="@{/static/assets/js/scripts.js}"></script>
 
 <!--[if lt IE 10]>
-<script src="../static/assets/js/placeholder.js"></script>
+<script src="/static/assets/js/placeholder.js"></script>
 <![endif]-->
 
 </body>

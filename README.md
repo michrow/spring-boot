@@ -64,18 +64,31 @@ custom-initializr就是一个定制之后的一个应用。
 
 ### 更新记录
 
-### 2020.2.20
+### 2020.2.19
 
-引入thymeleaf,首先取出原来演示mybatis分页插件引入的freemarker
+1、引入thymeleaf
+
+首先取出原来演示mybatis分页插件引入的freemarker
 修改：
-1、pom.xml:
-去处：
-spring-boot-starter-freemarker引入
 
-2、db配置文件，去除freemarker配置
+	a、pom.xml:
+	 去处：spring-boot-starter-freemarker引入
+	
+	b、db配置文件，去除freemarker配置
 
+2、完成国际化
 
+  国际化语言切换两种实现方式：
 
+  - LocaleChangeInterceptor
+  - LocaleResolver
+
+3、完成用户登录及拦截器，解决其中两个问题：
+
+  - 登录Post重复提交，通过重定向解决
+  - 用户登录拦截器，（SpringBoot2.x）静态资源也会拦截，需要排除
+> 登录有使用到jQuery背景插件backstretch，使用时有在js中引入图片，图片路径使用相
+> 对路径，为了方便修改servlet上下文，此处略作调整，通过document.location截取到上下文路径
 
 ### 2020.2.17
 
