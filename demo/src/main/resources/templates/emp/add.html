@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>list</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <!-- Custom styles for this template -->
+    <link href="/static/css/dashboard.css" th:href="@{/static/css/dashboard.css}" rel="stylesheet">
+</head>
+<body>
+<div th:replace="~{commons/bar::topbar}"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <!--传入参数判断是否高亮显示-->
+        <div th:replace="~{commons/bar::sidebar(activeUri='emps')}"></div>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <form action="/emp" th:action="@{/emp}" method="post">
+            <input type="hidden" name="_method" value="put" th:if="${emp!=null}">
+            <input type="hidden" name="id"  th:if="${emp!=null}" th:value="${emp.id}">
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Last Name</label>
+                <input th:value="${emp!=null}?${emp.lastName}" name="lastName" type="text" class="form-control" id="exampleFormControlInput1" placeholder="xiaowang">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Email address</label>
+                <input th:value="${emp!=null}?${emp.email}" name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="form-check form-check-inline">
+                    <input th:checked="${emp!=null}?${emp.sex==0}" class="form-check-input" type="radio" name="sex" value="0">
+                    <label class="form-check-label">男</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input th:checked="${emp!=null}?${emp.sex==1}" class="form-check-input" type="radio" name="sex" value="1">
+                    <label class="form-check-label">女</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Department</label>
+                <select th:value="${emp!=null}?${emp.department.id}" class="form-control" id="exampleFormControlSelect1" name="department.id">
+                    <option  th:each="dept:${depts}" th:value="${dept.id}" th:text="${dept.departmentName}"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Birth</label>
+                <input th:value="${emp!=null}?${#dates.format(emp.birth, 'yyyy-MM-dd HH:mm')}" name="birth" type="text" class="form-control" id="exampleFormControlInput1" placeholder="2020/12/01">
+            </div>
+            <button type="submit" class="btn btn-primary" th:text="${emp!=null}?'更新'">添加</button>
+        </form>
+        </main>
+    </div>
+</div>
+
+<script src="/static/assets/js/jquery-1.11.1.min.js" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script src="/webjars/bootstrap/4.4.1-1/js/bootstrap.bundle.min.js" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
