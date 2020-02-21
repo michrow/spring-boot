@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>5xx</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <!-- Custom styles for this template -->
+    <link href="/static/css/dashboard.css" th:href="@{/static/css/dashboard.css}" rel="stylesheet">
+</head>
+<body>
+<div th:replace="~{commons/bar::topbar}"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <!--传入参数判断是否高亮显示-->
+        <div th:replace="~{commons/bar::sidebar(activeUri='emps')}"></div>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <h1>[[${timestamp}]]</h1>
+            <h1>[[${status}]]</h1>
+            <h1>[[${error}]]</h1>
+            <h1>[[${exception}]]</h1>
+            <h1>[[${message}]]</h1>
+            <h1>[[${errors}]]</h1>
+        </main>
+    </div>
+</div>
+
+<script src="/static/assets/js/jquery-1.11.1.min.js" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script src="/webjars/bootstrap/4.4.1-1/js/bootstrap.bundle.min.js" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
