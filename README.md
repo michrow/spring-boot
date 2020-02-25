@@ -13,7 +13,7 @@
 
 1. SpringBoot各种Demo集合项目[demo](https://github.com/michrow/spring-boot/tree/master/demo)
 2. SpringBoot各个知识点运用汇总项目[myapp](https://github.com/michrow/spring-boot/tree/master/myapp)
-
+3. SpringBoot cache项目[cachedemo](https://github.com/michrow/spring-boot/tree/master/cachedemo)
 ## 内容列表
 
 - [背景](#背景)
@@ -63,7 +63,12 @@ custom-initializr就是一个定制之后的一个应用。
 2. [服务端环境搭建](https://github.com/lenve/vhr/wiki/2.%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA)
 
 ### 更新记录
+### 2020.2.25
+SpringBoot 缓存内容：
 
+1、SpringBoot自身定义了一套缓存接口，简化了JCache缓存接口，仅仅保留了CacheManager和Cache。
+2、SpringBoot中各个缓存注解使用
+3、继承Redis缓存
 
 ### 2020.2.20
 
