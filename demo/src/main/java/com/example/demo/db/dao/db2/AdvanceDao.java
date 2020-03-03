@@ -1,10 +1,7 @@
 package com.example.demo.db.dao.db2;
 
 import com.example.demo.db.pojo.Order;
-import com.sun.org.apache.xpath.internal.operations.Or;
 import org.apache.ibatis.annotations.Param;
-
-import java.util.List;
 
 public interface AdvanceDao {
     /**

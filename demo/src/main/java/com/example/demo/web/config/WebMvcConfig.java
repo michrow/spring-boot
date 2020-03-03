@@ -42,7 +42,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 //        registry.addInterceptor(localeChangeInterceptor);
 
         registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
-                .excludePathPatterns("/index.html","/","/user/login","/static/**","/webjars/**");
+                .excludePathPatterns("/index.html","/","/user/login","/static/**","/webjars/**","/service/**");
     }
 
     @Override

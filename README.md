@@ -63,6 +63,33 @@ custom-initializr就是一个定制之后的一个应用。
 2. [服务端环境搭建](https://github.com/lenve/vhr/wiki/2.%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA)
 
 ### 更新记录
+
+### 2020.3.3
+1、SpringBoot中增加excel和pdf操作
+
+2、测试Servet4在Springboot中的应用
+
+几个前提条件：
+
+* 安全传输层协议（TLS）
+* Servlet 4.0 is part of Java EE 8, and hence, it would require Java 9+ along with Spring 5.x.
+* Tomcat 9 supports HTTP/2
+
+- 配置https:
+
+	1. 使用JDK工具生成证书库：keytool -genkey -alias tomcat -storetype PKCS12 -keyalg RSA -keysize 2048 -storepass tomcat -keystore keystore.p12 -validity 3650
+	2. SpringBoot配置：
+	
+	
+>     # https支持
+>     server.ssl.key-store=keystore.p12
+>     server.ssl.key-store-password=tomcat
+>     server.ssl.keyStoreType=PKCS12
+>     server.ssl.key-alias=tomcat
+>     # http/2
+>     server.http2.enabled=true
+
+
 ### 2020.2.25
 SpringBoot 缓存内容：
 
