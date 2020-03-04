@@ -64,6 +64,15 @@ custom-initializr就是一个定制之后的一个应用。
 
 ### 更新记录
 
+### 2020.3.4
+
+1、springboot增加druid数据连接池
+a、多数据源配置
+b、springtoot自动配置
+c、JavaConfig手动配置
+d、开启监控stat
+
+
 ### 2020.3.3
 1、SpringBoot中增加excel和pdf操作
 
