@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="5;url=/page/login.html">
+    <title>Title</title>
+</head>
+<body onload="run()">
+<h2>页面将在<span id="spanId">5</span>秒后跳转</h2>
+
+</body>
+
+<script type="text/javascript">
+    /*
+        读秒的操作
+        加载事件 onload
+    */
+    var x = 5;
+
+    function run(){
+        var span = document.getElementById("spanId");
+        span.innerHTML = x;
+        x--;
+        window.setTimeout("run()", 1000);
+    }
+
+</script>
+</html>
