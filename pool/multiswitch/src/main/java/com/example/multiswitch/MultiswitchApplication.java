@@ -36,15 +36,35 @@ public class MultiswitchApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+//        manualSwitch();
+        aopSwitch();
+    }
+
+    /**
+     * 通过AOP切面，拦截注解自动切换
+     */
+    private void aopSwitch() {
+        /**
+         * 不设置注解，使用默认数据源
+         */
+        List<Multitest> multitests = multitestService.listMultitest1();
+        multitests.stream().forEach(multitest -> System.out.println(multitest.toString()));
+
+    }
+
+    /**
+     * 通过手动去设置当前操作数据库
+     */
+    private void manualSwitch() {
         DataSourceContextHolder.setDBType("default");
-        List<Multitest> multitests = multitestService.listMultitest();
+        List<Multitest> multitests = multitestService.listMultitest1();
         multitests.stream().forEach(multitest -> System.out.println(multitest.toString()));
 
 
 //        DataSourceContextHolder.clearDBType();
         System.out.println("切换到db2数据库");
         DataSourceContextHolder.setDBType("master");
-        List<Multitest> multitests1 = multitestService.listMultitest();
+        List<Multitest> multitests1 = multitestService.listMultitest1();
         multitests1.stream().forEach(multitest -> System.out.println(multitest.toString()));
 
         System.out.println("动态创建数据库");
@@ -59,10 +79,11 @@ public class MultiswitchApplication implements CommandLineRunner {
 
         System.out.println("切换到动态添加的数据库");
         DataSourceContextHolder.setDBType("dynmicds");
-        List<Multitest> multitests2 = multitestService.listMultitest();
+        List<Multitest> multitests2 = multitestService.listMultitest1();
         multitests2.stream().forEach(multitest -> System.out.println(multitest.toString()));
 
     }
+
     @Bean(name = "dynmicds")
     @ConfigurationProperties(prefix = "spring.datasource.dynmicds")
     public DruidDataSource createDataSource() {

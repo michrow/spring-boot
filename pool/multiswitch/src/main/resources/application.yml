@@ -68,6 +68,6 @@ mybatis:
 logging:
   level:
     druid.sql.Statement: debug
-    com.example.pool.druid.mapper.db2: debug
+    com.example.pool.druid.mapper.db2: debug  # Sql日志
+    org.springframework.orm.jpa: debug # 事物日志
 #debug: true
-

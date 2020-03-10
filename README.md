@@ -64,13 +64,22 @@ custom-initializr就是一个定制之后的一个应用。
 
 ### 更新记录
 
+### 2020.3.10
+1、利用Spring AOP通过注解动态切换数据源
+
+包：com.example.multiswitch.dbaop
+
+2、测试多数据源切换事物
+  
+test: com.example.multiswitch.service.MultitestServiceTest.addMultiTest3()
+
 ### 2020.3.9
 1、druid和spring 通过AOP关联
 2、wallfilter、logfilter、
 3、连接池泄漏检查
 4、配置JNDI
 5、数据库加密
-
+6、多数源动态切换和添加
 
 ### 2020.3.4
 
