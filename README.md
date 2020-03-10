@@ -73,6 +73,22 @@ custom-initializr就是一个定制之后的一个应用。
   
 test: com.example.multiswitch.service.MultitestServiceTest.addMultiTest3()
 
+3、增验证jar 在Springboot中的运行情况
+antisamy-1.5.7.jar
+batik-css-1.9.1.jar
+batik-util-1.6.1.jar
+commons-beanutils-1.6.1.jar
+commons-lang-2.1.jar
+xstream-1.2.2.jar
+以上jar验证可以查看： case/tools
+
+freemarker-2.3.20.jar
+以上jar验证可以查看：demo
+验证方式：修改默认依赖版本为2.3.20
+
+
+
+
 ### 2020.3.9
 1、druid和spring 通过AOP关联
 2、wallfilter、logfilter、
