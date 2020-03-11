@@ -1,6 +1,6 @@
 # SpringBoot
 
-![](springboot.png)
+![](sources/img/springboot.png)
 
 > Short blurb about what your product does.
 
@@ -63,6 +63,50 @@ custom-initializr就是一个定制之后的一个应用。
 2. [服务端环境搭建](https://github.com/lenve/vhr/wiki/2.%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA)
 
 ### 更新记录
+
+### 2020.3.11
+
+1、使用低版本的log4j替换现有logback
+package:case/log
+
+	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-web</artifactId>
+	    <exclusions> <!--排除springboot默认logback-->
+		    <exclusion>
+			    <artifactId>spring-boot-starter-logging</artifactId>
+			    <groupId>org.springframework.boot</groupId>
+		    </exclusion>
+	    </exclusions>
+    </dependency>
+    
+    <dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-log4j</artifactId>
+	    <version>1.3.8.RELEASE</version>
+	    <exclusions> <!--替换现有log4j-->
+		    <exclusion>
+			    <artifactId>log4j</artifactId>
+			    <groupId>log4j</groupId>
+		    </exclusion>
+	    </exclusions>
+    </dependency>
+    
+    <!--引入当前使用log4j版本-->
+    <dependency>
+	    <groupId>log4j</groupId>
+	    <artifactId>log4j</artifactId>
+	    <version>1.2.8</version>
+    </dependency>
+
+starter-log4j-1.0版本中默认log4j为1.2.17版本，替换为1.2.8之后，会有一个提示：
+*
+> SLF4J: This version of SLF4J requires log4j version 1.2.12 or later. See also http://www.slf4j.org/codes.html#log4j_version
+
+原因：
+![](sources/img/slf4j-trance-log4j.jpg)
+
+
 
 ### 2020.3.10
 1、利用Spring AOP通过注解动态切换数据源
